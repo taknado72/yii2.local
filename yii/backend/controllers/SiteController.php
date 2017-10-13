@@ -111,7 +111,7 @@ class SiteController extends Controller
             if(!file_exists($dir)){
                 FileHelper::createDirectory($dir);
             }
-            $result_link = str_replace('admin','', Url::home(true)).'uploads/images/'.$sub.'/';
+            $result_link = str_replace('admin.', '', Url::home(true)).'uploads/images/'.$sub.'/';
             $file = UploadedFile::getInstanceByName('file');
             $model = new DynamicModel(compact('file'));
             $model->addRule('file', 'image')->validate();
